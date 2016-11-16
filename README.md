@@ -1,3 +1,5 @@
+![GameFace case prototypes](http://jamesmedd.co.uk/images/game_face.jpg)
+
 # Overview
 
 I'm creating a framework for multi-part BBC micro:bit workshops, which I'm calling **GameFace**. As the name suggests, and typical of the work I've been doing for the last year, it's a games-based project. The workshops that come out of the project should collectively cover electronics, programming, and fabrication.

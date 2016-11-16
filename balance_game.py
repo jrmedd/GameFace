@@ -29,9 +29,9 @@ def scale_values(in_value, in_max, out_max):
 
 while True:
     microbit.display.clear() #clear the frame
-    reading_x = 1024+microbit.accelerometer.get_x() #set x accelerometer reading to a number between 0 and 2048
-    pixel_x = -8 + round(scale_values(reading_x, 2048, 20)) #scale the reading to the LED matrix (plenty of overflow to make it sensitive)
-    reading_y = 1024+microbit.accelerometer.get_y()
+    reading_x = 1024 + microbit.accelerometer.get_x() #set x accelerometer reading to a number between 0 and 2048
+    pixel_x = -8 + round(scale_values(reading_x, 2048, 20)) #scale the reading to the LED matrix (plenty of overflow to make it sensitive)
+    reading_y = 1024 + microbit.accelerometer.get_y()
     pixel_y = -8 + round(scale_values(reading_y, 2048, 20))
     if pixel_x > 4 or pixel_x < 0 or pixel_y > 4 or pixel_y < 0: #identify onscreen range
         on_screen = False #offscreen
