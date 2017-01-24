@@ -1,4 +1,4 @@
-![GameFace case prototypes](http://jamesmedd.co.uk/images/game_face.jpg)
+![GameFace case prototypes](http://jamesmedd.co.uk/images/gameface.jpg)
 
 # Overview
 
