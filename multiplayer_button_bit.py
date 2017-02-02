@@ -5,6 +5,7 @@ wait = random.randint(1000, 5000)
 start_wait = microbit.running_time()
 waiting = True
 game_won = False
+
 #create fade in and out frames
 frames = [] #array of frames
 for brightness in range(10): #iterate over 10 brightness levels
@@ -28,7 +29,7 @@ while True:
     time_now = microbit.running_time()
     if waiting:
         if (time_now - start_wait) > wait:
-            microbit.display.show("!")
+            microbit.display.show("#")
             waiting = False
         else:
             microbit.display.clear()

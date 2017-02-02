@@ -41,15 +41,15 @@ while True:
         else:
             microbit.display.clear() #keep display clear if we've not waited long enough
     else:
-        if (microbit.button_a.is_pressed() and a_or_b == "<") or (microbit.button_b.is_pressed() and a_or_b == ">"): #winning combo
-            score += 1 #increase score
+        if (microbit.button_a.is_pressed() and a_or_b == "<") or (microbit.button_b.is_pressed() and a_or_b == ">"):
+            score += 1 #increase score by 1
             round_over = True #round's done
-        elif (microbit.button_a.is_pressed() and a_or_b == ">") or (microbit.button_b.is_pressed() and a_or_b == "<"): #losing combo
+        elif (microbit.button_a.is_pressed() and a_or_b == ">") or (microbit.button_b.is_pressed() and a_or_b == "<"):
             failed = True #player failed
-        elif (time_now - press_wait) > quick_wait: #waited too long
+        elif ((time_now - press_wait) > quick_wait) and score != 0: #waited too long
             failed = True #player failed
         if failed:
-            microbit.display.show(frames, delay=20) #failure animation
+            microbit.display.show(frames, delay=20) #display failure animation
             display_score(score) #display the score
             score = 0 #reset score
             failed = False #reset failure state
