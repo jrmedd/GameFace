@@ -1,36 +1,15 @@
 ![GameFace case prototypes](http://jamesmedd.co.uk/images/gameface.jpg)
 
+"When you hand someone a GameFace, it stops being a micro:bit, and starts being something else; a standalone product in its own right, engineered by young people."
+
 # Overview
 
-I'm creating a framework for multi-part BBC micro:bit workshops, which I'm calling **GameFace**. As the name suggests, and typical of the work I've been doing for the last year, it's a games-based project. The workshops that come out of the project should collectively cover electronics, programming, and fabrication.
+This is an overall heading for BBC micro:bit workshops, which I'm calling **GameFace**. As the name suggests, it's a games-based project. The workshops collectively cover electronics, programming, and fabrication.
 
-# Ideas so far
+# Games so
 
-## Balance game (super-tentative title)
+* By far the most popular game so far is Quick Bit. It's a ** line game written in Python, testing speed of reactions. It works really well with a modular case design, and is suitable for one-day workshops.
 
-This is a multi-player, multi-component game, incorporating programming, electronics, design, and fabrication.
+* Button bit uses arcade buttons, and tests the reactions of multiple players.
 
-### Components involved
-
-The balance game uses 8 BBC micro:bits:
-
-* 2 x handheld controllers (to be handled by two players simultaneously)
-* 4 x checkpoints (one at the end of each room for each team)
-* 2 x indicators (connected to each team, utilising buzzers and LEDs!)
-
-The following hardware is utilised:
-
-* Accelerometer
-* Buttons
-* LED matrix
-* Piezo buzzers (via GPIO)
-* **Radio communication** is used by all micro:bits to co-ordinate the game
-
-All of the enclosures will be designed by the teams, so long as they meet prescribed design criteria and core functionality is maintained.
-
-### Objectives
-
-* Players must get their micro:bit from one side of the room to the other, hitting the checkpoint at each end.
-* To make things more complex, two people have to carry the micro:bit. Their grip will be ensured using the GPIO pins, and they will be penalised if either player releases their grip.
-* But it's worse than that: players have to keep their micro:bits evenly balanced, and avoid jerking them around. An LED on the matrix indicates how imbalanced their micro:bits are.
-* It's also **A RACE**!
+* I'm a way of developing it properly, but I've written up a set of rules for a multiple room-wide game based on balancing micro:bits and running around a room.

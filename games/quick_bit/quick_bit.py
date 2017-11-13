@@ -5,6 +5,7 @@ arrows = ["<", ">"] #arrows to indicate whether button A or B needs pressing
 
 change_wait = 250 #wait between prompting a press
 quick_wait = 500 #wait between requiring a press (or else failure!)
+
 start_wait = microbit.running_time() #start of the waiting time
 waiting = True #are we waiting to prompt a press
 round_over = False #has the round ended (by success or failure)
