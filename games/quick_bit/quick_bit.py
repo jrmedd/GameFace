@@ -1,26 +1,26 @@
-import microbit
 import random
+import microbit
 
-arrows = ["<", ">"] #arrows to indicate whether button A or B needs pressing
+ARROWS = ["<", ">"] #ARROWS to indicate whether button A or B needs pressing
 
-change_wait = 250 #wait between prompting a press
-quick_wait = 500 #wait between requiring a press (or else failure!)
+CHANGE_WAIT = 250 #wait between prompting a press
+QUICK_WAIT = 500 #wait between requiring a press (or else failure!)
 
-start_wait = microbit.running_time() #start of the waiting time
-waiting = True #are we waiting to prompt a press
-round_over = False #has the round ended (by success or failure)
-failed = False #have we failed
-score = 0 #score accumulator
+START_WAIT = microbit.running_time() #start of the WAITING time
+WAITING = True #are we WAITING to prompt a press
+ROUND_OVER = False #has the round ended (by success or failure)
+FAILED = False #have we FAILED
+SCORE = 0 #SCORE accumulator
 
-#create fade in and out frames
-frames = [] #array of frames
+#create fade in and out FRAMES
+FRAMES = [] #array of FRAMES
 for brightness in range(10): #iterate over 10 brightness levels
     frame = "" #create a blank frame variable
     for row in range(5): #iterate over each row of LEDs
         frame += str(brightness) * 5 + ":" #set all 5 LEDs to the same brightness
-    frames.append(frame[0:-1]) #append frame to frame array, taking off the last colon
-frames += frames[::-1] #put a reversed set of frames on the end of that array
-frames = [microbit.Image(frame) for frame in frames] #convert frames to micro:bit images
+    FRAMES.append(frame[0:-1]) #append frame to frame array, taking off the last colon
+FRAMES += FRAMES[::-1] #put a reversed set of FRAMES on the end of that array
+FRAMES = [microbit.Image(frame) for frame in FRAMES] #convert FRAMES to micro:bit images
 
 def display_score(number):
     number = str(number)
@@ -32,31 +32,31 @@ def display_score(number):
     return True
 
 while True:
-    time_now = microbit.running_time() #get current time for comparison
-    if waiting: #if we're waiting to prompt the player
-        if (time_now - start_wait) > change_wait: #if we've waited long enough
-            a_or_b = arrows[random.randint(0,1)] #choose a random button (A or B)
-            microbit.display.show(a_or_b) #show the user
-            waiting = False #say we're no longer waiting for a prompt
-            press_wait = time_now #start the timer for the player to press
+    TIME_NOW = microbit.running_time() #get current time for comparison
+    if WAITING: #if we're WAITING to prompt the player
+        if (TIME_NOW - START_WAIT) > CHANGE_WAIT: #if we've waited long enough
+            A_OR_B = ARROWS[random.randint(0, 1)] #choose a random button (A or B)
+            microbit.display.show(A_OR_B) #show the user
+            WAITING = False #say we're no longer WAITING for a prompt
+            PRESS_WAIT = TIME_NOW #start the timer for the player to press
         else:
             microbit.display.clear() #keep display clear if we've not waited long enough
     else:
-        if (microbit.button_a.is_pressed() and a_or_b == "<") or (microbit.button_b.is_pressed() and a_or_b == ">"):
-            score += 1 #increase score by 1
-            round_over = True #round's done
-        elif (microbit.button_a.is_pressed() and a_or_b == ">") or (microbit.button_b.is_pressed() and a_or_b == "<"):
-            failed = True #player failed
-        elif ((time_now - press_wait) > quick_wait) and score != 0: #waited too long
-            failed = True #player failed
-        if failed:
-            microbit.display.show(frames, delay=20) #display failure animation
-            display_score(score) #display the score
-            score = 0 #reset score
-            failed = False #reset failure state
-            round_over = True #round's over
-        if round_over:
+        if (microbit.button_a.is_pressed() and A_OR_B == "<") or (microbit.button_b.is_pressed() and A_OR_B == ">"):
+            SCORE += 1 #increase SCORE by 1
+            ROUND_OVER = True #round's done
+        elif (microbit.button_a.is_pressed() and A_OR_B == ">") or (microbit.button_b.is_pressed() and A_OR_B == "<"):
+            FAILED = True #player FAILED
+        elif ((TIME_NOW - PRESS_WAIT) > QUICK_WAIT) and SCORE != 0: #waited too long
+            FAILED = True #player FAILED
+        if FAILED:
+            microbit.display.show(FRAMES, delay=20) #display failure animation
+            display_score(SCORE) #display the SCORE
+            SCORE = 0 #reset SCORE
+            FAILED = False #reset failure state
+            ROUND_OVER = True #round's over
+        if ROUND_OVER:
             microbit.display.clear() #clear display
-            waiting = True #start waiting again
-            start_wait = microbit.running_time() #start waiting
-            round_over = False #round restarting
+            WAITING = True #start WAITING again
+            START_WAIT = microbit.running_time() #start WAITING
+            ROUND_OVER = False #round restarting
