@@ -6,9 +6,9 @@
 
 This is an overall heading for BBC micro:bit workshops, which I'm calling **GameFace**. As the name suggests, it's a games-based project. The workshops collectively cover electronics, programming, and fabrication.
 
-# Games so
+# Games so far
 
-* By far the most popular game so far is Quick Bit. It's a ** line game written in Python, testing speed of reactions. It works really well with a modular case design, and is suitable for one-day workshops.
+* By far the most popular game so far is Quick Bit. It's a 30 line game written in Python, testing speed of reactions. It works really well with a modular case design, and is suitable for one-day workshops.
 
 * Button bit uses arcade buttons, and tests the reactions of multiple players.
 
