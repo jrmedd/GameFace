@@ -29,6 +29,7 @@ def display_score(number):
     number = str(number)
     for i in range(5):
         microbit.display.show(number)
+        radio.send("SCORE,%s" % (number)) #leaderboard output (repeated for radio redundancy)
         microbit.sleep(75)
         microbit.display.clear()
         microbit.sleep(75)
@@ -54,7 +55,6 @@ while True:
             FAILED = True #player FAILED
         if FAILED:
             microbit.display.show(FRAMES, delay=20) #display failure animation
-            #radio.send("SCORE,%s" % (str(SCORE))) #leaderboard output
             display_score(SCORE) #display the SCORE
             SCORE = 0 #reset SCORE
             FAILED = False #reset failure state
