@@ -1,5 +1,8 @@
 import random
 import microbit
+import radio
+
+radio.on()
 
 ARROWS = ["<", ">"] #ARROWS to indicate whether button A or B needs pressing
 
@@ -51,6 +54,7 @@ while True:
             FAILED = True #player FAILED
         if FAILED:
             microbit.display.show(FRAMES, delay=20) #display failure animation
+            #radio.send("SCORE,%s" % (str(SCORE))) #leaderboard output
             display_score(SCORE) #display the SCORE
             SCORE = 0 #reset SCORE
             FAILED = False #reset failure state

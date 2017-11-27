@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+  <h1>Score</h1>
+  <p id="score"></p>
+  <script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='socket.io.min.js') }}"></script>
+  <script>
+    var socket = io.connect(location.origin);
+    socket.on('new_score', function(info){
+      $("#score").html(info.score);
+      console.log(info);
+    });
+  </script>
+</body>
+</html>
