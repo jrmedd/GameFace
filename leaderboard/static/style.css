@@ -14,34 +14,53 @@ body {
   color: #fff;
   background-color: #009DFF;
 }
-h1 {
+h2 {
   font-family: 'Bungee-Regular';
   letter-spacing: -.075em;
 }
 
 
+#live-score {
+  display: flex;
+  align-items: center;
+  width:100%;
+  min-height: 50vh;
+  text-align: center;
+}
+
+#highscores {
+  display: flex;
+  align-items: center;
+  width:100%;
+  min-height: 50vh;
+  text-align: center;
+}
+
 #last-score {
-  display: flex;
-  align-items: center;
-  width:100%;
-  min-height: 50vh;
-  text-align: center;
-}
-
-#best-score {
-  display: flex;
-  align-items: center;
-  width:100%;
-  min-height: 50vh;
-  text-align: center;
-}
-
-.score-display {
   justify-content: center;
   margin: 0;
   width:100%;
 }
 
-.score-display #score {
+#last-score .score {
   font-size: 1.5em;
+}
+
+#score-table {
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+#score-table table {
+  font-size: 1.5em;
+  width: 12.5%;
+  margin: 0 auto;
+}
+
+#score-table table .name {
+  text-align: left;
+}
+#score-table table .score {
+  text-align: right;
 }
