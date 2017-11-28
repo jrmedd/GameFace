@@ -1,16 +1,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Score</h1>
-  <p id="score"></p>
+  <div id="last-score">
+    <div class="score-display">
+      <h1>Last score</h1>
+      <p id="score">Play to set a score</p>
+    </div>
+  </div>
   <script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='socket.io.min.js') }}"></script>
   <script>
     var socket = io.connect(location.origin);
     socket.on('new_score', function(info){
-      $("#score").html(info.score);
+      $("#score").html(info.name +": "+info.score);
       console.log(info);
     });
   </script>

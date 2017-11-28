@@ -15,6 +15,8 @@ ROUND_OVER = False #has the round ended (by success or failure)
 FAILED = False #have we FAILED
 SCORE = 0 #SCORE accumulator
 
+MY_NAME = "BRIAN"
+
 #create fade in and out FRAMES
 FRAMES = [] #array of FRAMES
 for brightness in range(10): #iterate over 10 brightness levels
@@ -29,7 +31,7 @@ def display_score(number):
     number = str(number)
     for i in range(5):
         microbit.display.show(number)
-        radio.send("SCORE,%s" % (number)) #leaderboard output (repeated for radio redundancy)
+        radio.send("SCORE,%s,%s" % (MY_NAME,number)) #leaderboard output (repeated for radio redundancy)
         microbit.sleep(75)
         microbit.display.clear()
         microbit.sleep(75)

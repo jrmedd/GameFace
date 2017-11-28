@@ -1,0 +1,47 @@
+@font-face {
+  src: url('Bungee-Regular.ttf');
+  font-family: 'Bungee-Regular';
+  font-style: normal;
+}
+@font-face {
+  src: url('Barlow-Regular.ttf');
+  font-family: 'Barlow-Regular';
+  font-style: normal;
+}
+
+body {
+  font-family: 'Barlow-Regular', sans-serif !important;
+  color: #fff;
+  background-color: #009DFF;
+}
+h1 {
+  font-family: 'Bungee-Regular';
+  letter-spacing: -.075em;
+}
+
+
+#last-score {
+  display: flex;
+  align-items: center;
+  width:100%;
+  min-height: 50vh;
+  text-align: center;
+}
+
+#best-score {
+  display: flex;
+  align-items: center;
+  width:100%;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.score-display {
+  justify-content: center;
+  margin: 0;
+  width:100%;
+}
+
+.score-display #score {
+  font-size: 1.5em;
+}
