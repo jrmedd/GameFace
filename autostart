@@ -1,0 +1,11 @@
+#For /home/pi/.config/lxsession/LXDE-pi/autostart
+
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+#@xscreensaver -no-splash
+
+@xset s off
+@xset -dpms
+@xset s noblank
+@unclutter -idle 0.1 -root
+/usr/bin/chromium-browser --incognito --disable-restore-session-state --kiosk --app http://127.0.0.1:5000
