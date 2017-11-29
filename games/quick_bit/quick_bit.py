@@ -15,7 +15,7 @@ ROUND_OVER = False #has the round ended (by success or failure)
 FAILED = False #have we FAILED
 SCORE = 0 #SCORE accumulator
 
-MY_NAME = "BRIAN"
+MY_NAME = "NAIFEI"
 
 #create fade in and out FRAMES
 FRAMES = [] #array of FRAMES
