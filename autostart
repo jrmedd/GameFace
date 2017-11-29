@@ -8,4 +8,4 @@
 @xset -dpms
 @xset s noblank
 @unclutter -idle 0.1 -root
-/usr/bin/chromium-browser --incognito --disable-restore-session-state --kiosk --app http://127.0.0.1:5000
+/usr/bin/chromium-browser --incognito --kiosk --app http://127.0.0.1:5000
