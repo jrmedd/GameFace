@@ -6,13 +6,15 @@ from pymongo import MongoClient
 import datetime
 
 #client = MongoClient('mongodb://127.0.0.1:27017')
-client = MongoClient('mongodb://gfdb:cf0261e516ebaebcb91f8be770e41d3f@dokku-mongo-gfdb:27017/gfdb')
-db = client['gfdb'] #
+with open('mongo_auth.secret') as mongo_url:
+    client = MongoClient(mongo_url.read().strip())
+db = client['gfdb']
 leaderboard = db['leaderboard']
 
 app = Flask(__name__)
 
-app.secret_key = 'G@m3F@c3!'
+with open('secret_key.secret') as secret_key:
+    app.secret_key = secret_key.read().strip()
 
 socketio = SocketIO(app)
 
