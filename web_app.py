@@ -5,7 +5,8 @@ from pymongo import MongoClient
 
 import datetime
 
-client = MongoClient('mongodb://127.0.0.1:27017')
+#client = MongoClient('mongodb://127.0.0.1:27017')
+client = MongoClient('mongodb://gameface:9662990acd6c8703f87c52bcbcbb3b2f@dokku-mongo-gameface:27017/gameface')
 db = client['GameFace']
 leaderboard = db['leaderboard']
 
