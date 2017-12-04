@@ -1,3 +1,5 @@
+*.secret
+
 # General
 *.DS_Store
 *.AppleDouble
