@@ -14,4 +14,4 @@ while True:
         if  this_score != last_score or this_name != last_name:
             last_name = this_name
             last_score = this_score
-            requests.get("http://127.0.0.1:5000/entry/%s/%s" % (this_name, this_score))
+            requests.get("http://api.gameface.xyz/entry/%s/%s" % (this_name, this_score))
