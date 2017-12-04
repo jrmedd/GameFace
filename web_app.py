@@ -5,16 +5,19 @@ from pymongo import MongoClient
 
 import datetime
 
+import os
+
+mongo_url = os.environ.get('MONGO_URL')
+
 #client = MongoClient('mongodb://127.0.0.1:27017')
-with open('mongo_auth.secret') as mongo_url:
-    client = MongoClient(mongo_url.read().strip())
+
+client = MongoClient(mongo_url)
 db = client['gfdb']
 leaderboard = db['leaderboard']
 
 app = Flask(__name__)
 
-with open('secret_key.secret') as secret_key:
-    app.secret_key = secret_key.read().strip()
+app.secret_key = os.environ.get('SECRET_KEY')
 
 socketio = SocketIO(app)
 
