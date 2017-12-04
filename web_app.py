@@ -6,7 +6,7 @@ from pymongo import MongoClient
 import datetime
 
 #client = MongoClient('mongodb://127.0.0.1:27017')
-client = MongoClient(' mongodb://gfdb:cf0261e516ebaebcb91f8be770e41d3f@dokku-mongo-gfdb:27017/gfdb')
+client = MongoClient('mongodb://gfdb:cf0261e516ebaebcb91f8be770e41d3f@dokku-mongo-gfdb:27017/gfdb')
 db = client['gfdb']
 leaderboard = db['leaderboard']
 
