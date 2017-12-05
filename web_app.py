@@ -14,6 +14,7 @@ mongo_url = os.environ.get('MONGO_URL')
 client = MongoClient(mongo_url)
 db = client['gfdb']
 leaderboard = db['leaderboard']
+keys = db['keys']
 
 app = Flask(__name__)
 
@@ -27,9 +28,15 @@ def index():
 
 @app.route('/entry/<name>/<score>')
 def entry(name, score):
-    socketio.emit('new_score', {'name':name,'score':score})
-    leaderboard.update({'name':name},{'name':name,'score':int(score)}, upsert=True)
-    return jsonify(entry = {'success':True})
+    api_key = request.headers.get('X-Api-Key')
+    key_check = keys.find_one({'key':api_key})
+    if key_check.get('valid'):
+        socketio.emit('new_score', {'name':name,'score':score})
+        leaderboard.update({'name':name},{'name':name,'score':int(score)}, upsert=True)
+        return jsonify(entry = {'success':True})
+    else:
+        return jsonify(entry = {'success':False})
+
 
 @app.route('/highscores')
 def highscores():

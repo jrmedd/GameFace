@@ -1,9 +1,12 @@
 import serial
 import requests
+import os
 
-mb = serial.Serial('/dev/ttyACM0', baudrate=115200)
+mb = serial.Serial('/dev/tty.usbmodem1412', baudrate=115200)
 last_score = 0
 last_name = None
+
+api_key = {"X-Api-Key":os.environ.get('GF_API')}
 
 while True:
     score = mb.readline()
@@ -14,4 +17,5 @@ while True:
         if  this_score != last_score or this_name != last_name:
             last_name = this_name
             last_score = this_score
-            requests.get("http://api.gameface.xyz/entry/%s/%s" % (this_name, this_score))
+            entry = requests.get("http://api.gameface.xyz/entry/%s/%s" % (this_name, this_score), headers=api_key)
+            print entry.json()
