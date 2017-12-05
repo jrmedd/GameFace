@@ -18,4 +18,3 @@ while True:
             last_name = this_name
             last_score = this_score
             entry = requests.get("http://api.gameface.xyz/entry/%s/%s" % (this_name, this_score), headers=api_key)
-            print entry.json()
