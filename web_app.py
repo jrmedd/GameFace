@@ -28,8 +28,7 @@ def index():
 
 @app.route('/entry/<name>/<score>')
 def entry(name, score):
-    api_key = request.headers.get('X-Api-Key')
-    key_check = keys.find_one({'key':api_key})
+    key_check = keys.find_one({'key':request.headers.get('X-Api-Key')})
     if key_check.get('valid'):
         socketio.emit('new_score', {'name':name,'score':score})
         leaderboard.update({'name':name},{'name':name,'score':int(score)}, upsert=True)
