@@ -15,7 +15,7 @@ ROUND_OVER = False #has the round ended (by success or failure)
 FAILED = False #have we FAILED
 SCORE = 0 #SCORE accumulator
 
-MY_NAME = "NAIFEI"
+MY_NAME = "TEAM 1"
 
 #create fade in and out FRAMES
 FRAMES = [] #array of FRAMES
@@ -29,8 +29,8 @@ FRAMES = [microbit.Image(frame) for frame in FRAMES] #convert FRAMES to micro:bi
 
 def display_score(number):
     number = str(number)
-    for i in range(5):
-        microbit.display.show(number)
+    for i in range(3):
+        microbit.display.scroll(number,delay=80)
         radio.send("SCORE,%s,%s" % (MY_NAME,number)) #leaderboard output (repeated for radio redundancy)
         microbit.sleep(75)
         microbit.display.clear()

@@ -9,8 +9,6 @@ import os
 
 mongo_url = os.environ.get('MONGO_URL')
 
-#client = MongoClient('mongodb://127.0.0.1:27017')
-
 client = MongoClient(mongo_url)
 db = client['gfdb']
 leaderboard = db['leaderboard']
@@ -26,16 +24,16 @@ socketio = SocketIO(app)
 def index():
   return render_template('index.html')
 
-@app.route('/entry/<name>/<score>')
-def entry(name, score):
+@app.route('/entry', methods=["POST"])
+def entry():
     key_check = keys.find_one({'key':request.headers.get('X-Api-Key')})
     if key_check and key_check.get('valid'):
+        name, score = request.form.get('name'), request.form.get('score')
         socketio.emit('new_score', {'name':name,'score':score})
         leaderboard.update({'name':name},{'name':name,'score':int(score)}, upsert=True)
         return jsonify(entry = {'success':True})
     else:
         return jsonify(entry = {'success':False})
-
 
 @app.route('/highscores')
 def highscores():
