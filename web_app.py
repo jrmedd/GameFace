@@ -20,7 +20,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 
 socketio = SocketIO(app)
 
-@app.route('/',methods=['GET','POST'])
+@app.route('/', methods=['GET'])
 def index():
   return render_template('index.html')
 
