@@ -11,6 +11,8 @@ last_name = None
 
 while True:
     score = MB.readline()
+    if (type(score) is bytes):
+        score = score.decode('utf-8')    
     score = score.split(",")
     if score[0] == "SCORE":
         this_name = score[1].strip()
